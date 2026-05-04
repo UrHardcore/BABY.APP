@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BabyCare PWA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4A90E2">
+</head>
+<body>
+
+    <!-- Contenedor de Alertas Flotantes -->
+    <div id="toast-container"></div>
+
+    <!-- Pantalla de Registro (Solo si no hay datos) -->
+    <section id="setup-screen" class="screen hidden">
+        <div class="card">
+            <h1>Bienvenido</h1>
+            <p>Configura el perfil de tu bebé para empezar.</p>
+            <div class="input-group">
+                <label>Nombre</label>
+                <input type="text" id="baby-name-input" placeholder="Ej: Benjamín">
+            </div>
+            <div class="input-group">
+                <label>Fecha de Nacimiento</label>
+                <input type="date" id="baby-dob-input">
+            </div>
+            <button onclick="saveProfile()" class="btn-primary">Empezar</button>
+        </div>
+    </section>
+
+    <!-- Dashboard Principal -->
+    <main id="main-screen" class="screen hidden">
+        <header class="header">
+            <h2 id="baby-display-name">Bebé</h2>
+            <p id="baby-display-age">-- años, -- meses</p>
+        </header>
+
+        <section class="section" id="important-today">
+            <h3>Hoy importante</h3>
+            <div id="summary-cards" class="summary-grid">
+                <!-- Se llena dinámicamente -->
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>Calendario de Vacunas</h3>
+            <div id="vaccine-list" class="list-container">
+                <!-- Se llena dinámicamente -->
+            </div>
+        </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>

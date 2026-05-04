@@ -1,0 +1,60 @@
+:root {
+    --primary: #4A90E2;
+    --success: #2ECC71;
+    --warning: #F1C40F;
+    --danger: #E74C3C;
+    --bg: #F8F9FA;
+    --text: #2C3E50;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+    background: var(--bg); color: var(--text); margin: 0; padding: 0;
+    line-height: 1.4; user-select: none;
+}
+
+.screen { padding: 20px; min-height: 100vh; }
+.hidden { display: none !important; }
+
+.card { background: #fff; padding: 20px; border-radius: 16px; shadow: 0 4px 6px rgba(0,0,0,0.05); }
+
+.header { text-align: center; margin-bottom: 25px; }
+.header h2 { margin: 0; font-size: 1.8rem; color: var(--primary); }
+
+.section h3 { font-size: 0.9rem; text-transform: uppercase; color: #7f8c8d; letter-spacing: 1px; }
+
+/* Grid de Resumen */
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.summary-item { padding: 15px; border-radius: 12px; color: white; font-weight: bold; text-align: center; font-size: 0.85rem; }
+
+/* Lista de Vacunas */
+.list-container { display: flex; flex-direction: column; gap: 10px; }
+.vaccine-item { 
+    background: #fff; padding: 15px; border-radius: 12px; 
+    display: flex; justify-content: space-between; align-items: center;
+    border-left: 5px solid #ccc;
+}
+.vaccine-info h4 { margin: 0; font-size: 1rem; }
+.vaccine-info p { margin: 5px 0 0; font-size: 0.8rem; color: #7f8c8d; }
+
+/* Estados */
+.state-done { border-left-color: var(--success); }
+.state-due { border-left-color: var(--warning); background: #fffdf5; }
+.state-late { border-left-color: var(--danger); background: #fff5f5; }
+
+/* Botones */
+button { border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+.btn-primary { background: var(--primary); color: white; padding: 15px; width: 100%; font-size: 1rem; }
+.btn-check { background: #f0f0f0; padding: 8px 12px; font-size: 0.8rem; }
+.btn-check.active { background: var(--success); color: white; }
+
+/* Toasts */
+#toast-container { position: fixed; top: 20px; left: 10px; right: 10px; z-index: 1000; }
+.toast { background: #333; color: white; padding: 12px 20px; border-radius: 30px; margin-bottom: 8px; font-size: 0.9rem; text-align: center; animation: slideIn 0.3s ease-out; }
+
+@keyframes slideIn { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; margin-bottom: 5px; font-size: 0.9rem; }
+.input-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
